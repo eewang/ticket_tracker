@@ -1,0 +1,2 @@
+class Performance < Concert
+end

@@ -1,0 +1,21 @@
+<h1>Listing concerts</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @concerts.each do |concert| %>
+  <tr>
+    <td><%= link_to 'Show', concert %></td>
+    <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
+    <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Concert', new_concert_path %>

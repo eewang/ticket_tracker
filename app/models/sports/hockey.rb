@@ -1,0 +1,3 @@
+class Hockey < Sport
+end
+

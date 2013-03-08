@@ -1,0 +1,3 @@
+class CollegeBasketball < Sport
+end
+

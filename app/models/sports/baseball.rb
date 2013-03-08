@@ -1,0 +1,3 @@
+class Baseball < Sport
+end
+

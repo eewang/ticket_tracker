@@ -1,0 +1,2 @@
+class CollegeFootball < Sport
+end

@@ -1,0 +1,4 @@
+class ProFootball < Sport
+end
+
+
