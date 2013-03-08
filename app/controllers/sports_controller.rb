@@ -80,4 +80,10 @@ class SportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def get_probasketball
+    ProBasketball.get_probasketball
+    render :text => "Success"
+  end
+
 end

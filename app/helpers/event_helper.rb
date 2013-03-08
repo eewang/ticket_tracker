@@ -1,16 +1,23 @@
-module Event
-  include Stubhub
+module EventHelper
+  include StubhubHelper
+  module Query
 
-  class Scrape
+  # SEARCH
+
+  # 1) get array of items to search for (e.g., list of NBA teams, list of festivals)
+  # 2) For each item in the list, go to Stubhub and get an array of events that match that term
+  # 3) For each array that comes back, filter it by the description to remove unnecessary items.
+  # 4) Create and save an event object for each array
+
 
     def self.search_event(loose_query)
       @events_raw = []
-      @events_raw = Stubhub::Event.search(loose_query)["response"]["docs"]
+      @events_raw = StubhubHelper::Event.search(loose_query)["response"]["docs"]
     end
 
-    def self.get_event_ids(strict_query)
+    def self.get_event_ids(array, strict_query)
       @events_array = []
-      @events_raw.each do |event|
+      array.each do |event|
         begin
           if event["description"].include?(strict_query) && (Date.parse(event["event_date_local"]) > Date.today)
             @events_array.push(event)
@@ -21,10 +28,6 @@ module Event
       end
       return @events_array
     end
-
-  end
-
-  class Query
 
     ## ActiveRecord Queries ##
 

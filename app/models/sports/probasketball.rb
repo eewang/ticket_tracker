@@ -79,6 +79,9 @@ EOF
     self.nba_teams_hash.values
   end
 
+  def self.get_probasketball
+    Sport.get_sports(ProBasketball.nba_team_names, "ProBasketball")
+  end
 
 end
 

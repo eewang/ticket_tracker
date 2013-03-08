@@ -1,9 +1,9 @@
-module Stubhub
+module StubhubHelper
+
   module Client
     include HTTParty
-
     @base_uri = "http://www.stubhub.com/listingCatalog/select/?q="
-    format :json
+    # format :json
 
     def self.convert_query_to_url(options)
       options.map do |k, v|

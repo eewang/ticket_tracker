@@ -24,4 +24,8 @@ class Festival < Concert
     FESTIVALS
   end
 
+  def self.get_festivals
+    Concert.get_concerts(Festival.festival_list, "Festival")
+  end
+
 end

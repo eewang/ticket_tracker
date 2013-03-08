@@ -80,4 +80,10 @@ class ConcertsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def get_festivals
+    Festival.get_festivals
+    render :text => "Success"
+  end
+
 end
