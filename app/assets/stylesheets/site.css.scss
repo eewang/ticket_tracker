@@ -77,7 +77,7 @@ h3 {
 }
 
 #slide_nav li {
-  font-size: 10pt;
+  font-size: 16pt;
   color: #000;
   list-style: none;
   float: left;
@@ -87,7 +87,7 @@ h3 {
 }
 
 #slide_nav {
-  width: 567px;
+  width: 556px;
   text-align: center;
   margin: 0 auto;
 }
@@ -167,8 +167,26 @@ nav {
   background-image: url('nba_logos.jpg');
 }
 
+#myCarousel {
+  background: black;
+}
+
+.item img {
+  width: auto;
+  height: 500px;
+  max-height: 500px;
+  margin: 0px auto;
+  display: block;
+}
+
 #event_chart {
 
+}
+
+.nav-primary {
+  list-style: none;
+  text-align: center;
+  margin: 0 auto;
 }
 
 /*========== SEARCH =============*/
