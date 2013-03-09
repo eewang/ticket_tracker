@@ -31,13 +31,41 @@ module EventHelper
 
     ## ActiveRecord Queries ##
 
-    def self.all_less_recent
-      where('created_at < ?', DateTime.now-1).order("created_at DESC", "act_primary ASC", "minPrice DESC")
+    def search(search)
+      if search
+        where(["act_primary LIKE :tag", {:tag => search}])
+      else
+        find(:all)
+      end
     end
 
-    def self.all_most_recent
-      where('created_at >= ?', DateTime.now-1).order("event_date_local ASC", "act_primary ASC", "minPrice DESC")
+    def most_recent
+      where('created_at >= ?', DateTime.now-2)
+    end    
+
+    def less_recent
+      where('created_at < ?', DateTime.now-2)
     end
+
+    def alphabetical
+      order('act_primary ASC')
+    end
+
+    def upcoming
+      order('event_date_local ASC')
+    end
+
+    def cheap
+      order('minPrice DESC')
+    end
+
+    # def all_less_recent
+    #   where('created_at < ?', DateTime.now-1).order("created_at DESC", "act_primary ASC", "minPrice DESC")
+    # end
+
+    # def all_most_recent
+    #   where('created_at >= ?', DateTime.now-1).order("event_date_local ASC", "act_primary ASC", "minPrice DESC")
+    # end
 
     def self.cheap_less_recent(user)
       where('minPrice <= ? AND created_at < ? AND act_primary = ?', user.range_min_price, DateTime.now-1, user.fav_teams.to_s).order("event_date_local ASC", "act_primary ASC", "minPrice DESC")

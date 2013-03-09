@@ -1,3 +1,54 @@
 // Place all the styles related to the Concerts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+thead {
+  font-weight: bold;
+}
+
+td {
+  padding-right: 2px;
+  font-size: 8pt;
+}
+
+tr {
+  border-bottom: 1px solid;
+}
+
+tr:hover {
+  background-color: #409238;
+  cursor: pointer;
+}
+
+#event-table {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.hidden {
+  display: hidden;
+}
+
+.less_recent {
+  color: blue;
+}
+
+.sidebar-nav-fixed {
+    padding: 9px 0;
+    position:fixed;
+    left:20px;
+    top:100px;
+    width:580px;
+}
+
+#header {
+  position:fixed;
+  text-align: center;
+  padding-top: 50px;
+  top:0px;
+  z-index: 1;
+  background-color: white;
+}
+
+/*.row-fluid > .span-fixed-sidebar {
+    margin-left: 290px;
+}*/

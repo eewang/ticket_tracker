@@ -1,4 +1,5 @@
 class Sport < ActiveRecord::Base
+  
   include StubhubHelper
   include EventHelper
 

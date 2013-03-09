@@ -2,6 +2,7 @@ class Concert < ActiveRecord::Base
 
   include StubhubHelper
   include EventHelper
+  extend EventHelper::Query
 
   attr_accessible :title, :body,
     :type,

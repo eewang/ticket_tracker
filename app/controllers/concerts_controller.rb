@@ -10,6 +10,12 @@ class ConcertsController < ApplicationController
     end
   end
 
+  def index_festivals
+    @festivals = Festival.all
+    @all_most_recent = Festival.most_recent.upcoming.alphabetical.cheap
+    @all_less_recent = Festival.most_recent.alphabetical.cheap
+  end
+
   # GET /concerts/1
   # GET /concerts/1.json
   def show

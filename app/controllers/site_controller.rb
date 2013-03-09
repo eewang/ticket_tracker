@@ -1,7 +1,11 @@
 class SiteController < ApplicationController
 
   def index
-    render :text => "Coming Soon"
+    render :index
+  end
+
+  def search
+    @all_most_recent = Festival.search(params[:search])
   end
 
 end

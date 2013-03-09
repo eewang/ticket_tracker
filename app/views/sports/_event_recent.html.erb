@@ -1,0 +1,10 @@
+<tr class="most_recent" id="<%= c.event_type %>" >
+  <td class="created_at"><%= c.created_at.strftime("%D") %></td> 
+  <td class="act_primary"><%= c.act_primary %></td>
+  <td class="act_secondary"><%= c.act_secondary %></td>
+  <td class="event_date_local"><%= Date.strptime(c.event_date_local, "%Y-%m-%d").strftime("%m/%d/%Y") %></td>
+  <td class="minPrice"><%= c.minPrice %></td>
+  <td class="totalTickets"><%= c.totalTickets %></td>
+  <td class="venue_name"><%= c.venue_name %></td>
+  <td class="city"><%= c.city %></td>
+</tr>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307231909) do
+ActiveRecord::Schema.define(:version => 20130308050026) do
 
   create_table "concerts", :force => true do |t|
     t.string   "type"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20130307231909) do
     t.string   "genreUrlPath"
     t.string   "genre_grand_parent_id"
     t.string   "genre_grand_parent_name"
-    t.string   "ancesterGenreIds"
+    t.string   "ancestorGenreIds"
     t.string   "last_chance"
     t.float    "maxPrice"
     t.string   "maxSeatsTogether"

@@ -81,8 +81,8 @@ class SportsController < ApplicationController
     end
   end
 
-  def get_probasketball
-    ProBasketball.get_probasketball
+  def get_basketball
+    SportProBasketball.get_probasketball
     render :text => "Success"
   end
 

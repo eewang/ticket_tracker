@@ -1,0 +1,118 @@
+<html>
+<head>
+  <script type="text/javascript" src="event_generic.js"></script>
+  <script type="text/javascript" src="event_charts.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.most_recent').click(function(){
+        var id = $(this).attr("id")
+        $('#' + id + '.less_recent').toggleClass('hidden');
+      });
+
+  Array.max = function( array ){
+    return Math.max.apply( Math, array );
+  };
+
+  Array.min = function( array ){
+    return Math.min.apply( Math, array );
+  };
+
+  var min_price, tix_remain, name;
+
+  $('.most_recent').click(function(){
+    var minPrice_array = [], 
+        minPrice, 
+        event_count, 
+        tix_array = [],
+        tix, 
+        tix_length, 
+        date_as_of_array = [],
+        date_as_of,
+        id, 
+        name;
+
+    id = $(this).attr("id");
+
+    name = $(this).find('.act_primary').html() + " on " + $(this).find('.event_date_local').html();
+
+    event_count = $('body').find('#' + id + ' .minPrice').size();
+
+    for(var i = 0; i < event_count; i++){
+
+      minPrice = $('body').find('#' + id + ' .minPrice' + ':eq(' + i + ')').text();
+      minPrice_array[i] = parseFloat(minPrice);
+
+      tix = $('body').find('#' + id + ' .totalTickets' + ':eq(' + i + ')').text();
+      tix_array[i] = parseFloat(tix);
+
+      date_as_of = $('body').find('#' + id + ' .created_at ' + ':eq(' + i + ')').text();
+      date_as_of_array[i] = date_as_of;
+      console.log(date_as_of_array);
+    };
+
+    var event_chart = new Highcharts.Chart({
+      chart: {
+        renderTo: 'event_chart',
+        type: 'line'
+      },
+      title: {
+        text: "Title" 
+      },
+      xAxis: {
+        categories: [1, 2, 3]
+      },
+      yAxis: [{
+        title: {
+          text: "Minimum Price"
+        },
+      }, {
+          title: {
+            text: "Tickets Remaining"
+          },
+        opposite: true 
+        }],
+      series: [{
+        name: 'Min Ticket Price (LHS)',
+        type: 'line',
+        data: [1, 0, 4]
+      }, {
+        name: 'Tickets Remaining (RHS)',
+        type: 'line',
+        yAxis: 1,
+        data: [4, 3, 7]
+      }]
+      });
+
+    event_chart.yAxis[0].setExtremes(Array.min(minPrice_array)/2, Array.max(minPrice_array)*2);
+    event_chart.series[0].setData(minPrice_array.reverse());
+
+    event_chart.yAxis[1].setExtremes(Array.min(tix_array)/2, Array.max(tix_array)*2);
+    event_chart.series[1].setData(tix_array.reverse());
+    event_chart.xAxis[0].setCategories(date_as_of_array.reverse());
+    event_chart.setTitle({text: name});
+
+      console.log(tix_array);
+
+
+  });
+
+  });
+  </script>
+</head>
+  <div id="header" class="container-fluid row-fluid span10"><h1>Hello! Welcome to TickeTracker!</h1></div>
+  <div class="container-fluid"> 
+    <div class="row-fluid row">
+      <div class="span6">
+        <div class="sidebar-nav-fixed">
+          <div id="event_chart" style="width:100%; height:450px;">
+          </div> <!-- End of event chart div -->
+        </div> <!-- End div class="well sidebar-nav-fixed"-->
+      </div> <!-- End div class="span6" -->
+      <div class="span6 span-fixed-sidebar" id="event-table">
+
+      <%= render :partial => "concert_table" %>
+      
+      </div> <!-- End div for event tabular data -->
+    </div> <!-- End div class="row-fluid" -->
+</div> <!-- End div class="container-fluid" -->
+</html>

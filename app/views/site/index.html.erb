@@ -1,0 +1,103 @@
+<head>
+  <%= javascript_include_tag "application" %>
+
+  <script>
+
+  $(document).ready(function(){
+
+  });
+  </script>
+
+</head>
+<div id="wrapper">
+  <%= render :partial => "header" %>
+  <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to "0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to "1"></li>
+      <li data-target="#myCarousel" data-slide-to "2"></li>
+      <li data-target="#myCarousel" data-slide-to "3"></li>
+      <li data-target="#myCarousel" data-slide-to "4"></li>
+      <li data-target="#myCarousel" data-slide-to "5"></li>
+      <li data-target="#myCarousel" data-slide-to "6"></li>
+      <li data-target="#myCarousel" data-slide-to "7"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="active item">
+        <%= image_tag "rose.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>Party with Derrick Rose</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "lebron.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>Watch the Throne</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "durant.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>#HumbleBrag</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "kobe.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>Michael > Kobe</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "griffin.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>I bought a Kia from him</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "harden.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>All bow to the Beard</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "westbrook.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>Fashonista who moonlights as a basketball player</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag "kyrie.jpg", :size => "960x500" %>
+        <div class="carousel-caption">
+          <h4>Awesome Duke grad</h4>
+          <p>Search for tickets and use historical pricing data to buy smarter.</p>
+        </div>
+      </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+<!--     <div id="clicker_f"><a href="#"></a></div>
+    <div id="clicker_r"><a href="#"></a></div> -->
+  </div>
+</div>
+<h3>Search</h3>
+<h5><%= link_to "Search For Events", search_path %>
+<h3>Concerts</h3>
+<ul>
+  <li><%= link_to "View All Festivals", concerts_index_festivals_path %></li>
+  <li><%= link_to "View All Performances", concerts_path %></li>
+</ul>
+<h3>Sports</h3>
+<ul>
+  <li><%= link_to "View All Sports", sports_path %></li>
+  <li><%#= link_to "Create New User", new_user_path %></li>
+</ul>
+<h3>Tickets</h3>
+<%= render :partial => "footer" %>
+</div>

@@ -1,0 +1,9 @@
+<tr class="less_recent hidden" id="<%= r.genre_parent %>" >
+  <td class="created_at"><%= r.created_at.strftime("%D") %></td> 
+  <td class="act_primary"><%= r.act_primary %></td>
+  <td class="event_date_local"><%= Date.strptime(r.event_date_local, "%Y-%m-%d").strftime("%m/%d/%Y") %></td>
+  <td class="minPrice"><%= r.minPrice %></td>
+  <td class="totalTickets"><%= r.totalTickets %></td>
+  <td class="venue_name"><%= r.venue_name %></td>
+  <td class="city"><%= r.city %></td>
+</tr>

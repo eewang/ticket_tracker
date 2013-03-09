@@ -1,0 +1,146 @@
+<html>
+<head>
+
+<script>
+$(document).ready(function(){
+  $('h3').click(function(){
+    alert("Hello World!");
+  })
+
+  $('.most_recent').click(function(){
+    var id = $(this).attr("id")
+    $('#' + id + '.less_recent').toggleClass('hidden');
+  })
+});
+
+</script>
+
+</head>
+<body>
+    <h3>The cheap tickets are: </h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>As Of Date</td>
+            <td>Home Team </td>
+            <td>Away Team </td>
+            <td>Event Date </td>
+            <td>Min Ticket Price (USD) </td>
+            <td>Tickets Remaining </td>
+            <td>Event Venue </td>
+            <td>Event City </td>
+          </tr>
+        </thead>
+    <% @cheap_most_recent.each do |c| %>
+        <tbody>
+          <tr class="most_recent" id="<%= c.event_type %>" >
+            <td><%= c.created_at.strftime("%D") %></td>
+            <td><%= c.act_primary %></td>
+            <td><%= c.act_secondary %></td>
+            <td><%= c.event_date_local %></td>
+            <td><%= c.minPrice %></td>
+            <td><%= c.totalTickets %></td>
+            <td><%= c.venue_name %></td>
+            <td><%= c.city %></td>
+          </tr>
+          <% @cheap_less_recent.find_all_by_event_type(c.event_type).each do |r| %>
+          <tr class="less_recent hidden" id="<%= c.event_type %>">
+            <td><%= r.created_at.strftime("%D") %></td>
+            <td><%= r.act_primary %></td>
+            <td><%= r.act_secondary %></td>
+            <td><%= r.event_date_local %></td>
+            <td><%= r.minPrice %></td>
+            <td><%= r.totalTickets %></td>
+            <td><%= r.venue_name %></td>
+            <td><%= r.city %></td>
+          </tr>
+          <% end %>
+      </tbody>
+    <% end %>
+    </table>
+    <br><br>
+    <h3>The expensive tickets are: </h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>As Of Date</td>
+            <td>Home Team </td>
+            <td>Away Team </td>
+            <td>Event Date </td>
+            <td>Min Ticket Price (USD) </td>
+            <td>Tickets Remaining </td>
+            <td>Event Venue </td>
+            <td>Event City </td>
+          </tr>
+        </thead>
+    <% @expensive_most_recent.each do |c| %>
+        <tbody>
+          <tr class="most_recent" id="<%= c.event_type %>" >
+            <td><%= c.created_at.strftime("%D") %></td>
+            <td><%= c.act_primary %></td>
+            <td><%= c.act_secondary %></td>
+            <td><%= c.event_date_local %></td>
+            <td><%= c.minPrice %></td>
+            <td><%= c.totalTickets %></td>
+            <td><%= c.venue_name %></td>
+            <td><%= c.city %></td>
+          </tr>
+          <% @expensive_less_recent.find_all_by_event_type(c.event_type).each do |r| %>
+          <tr class="less_recent hidden" id="<%= c.event_type %>">
+            <td><%= r.created_at.strftime("%D") %></td>
+            <td><%= r.act_primary %></td>
+            <td><%= r.act_secondary %></td>
+            <td><%= r.event_date_local %></td>
+            <td><%= r.minPrice %></td>
+            <td><%= r.totalTickets %></td>
+            <td><%= r.venue_name %></td>
+            <td><%= r.city %></td>
+          </tr>
+          <% end %>
+      </tbody>
+    <% end %>
+    </table>
+    <br><br>
+    <h3>The affordable tickets are: </h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>As Of Date</td>
+            <td>Home Team </td>
+            <td>Away Team </td>
+            <td>Event Date </td>
+            <td>Min Ticket Price (USD) </td>
+            <td>Tickets Remaining </td>
+            <td>Event Venue </td>
+            <td>Event City </td>
+          </tr>
+        </thead>
+    <% @affordable_most_recent.each do |c| %>
+        <tbody>
+          <tr class="most_recent" id="<%= c.event_type %>" >
+            <td><%= c.created_at.strftime("%D") %></td>
+            <td><%= c.act_primary %></td>
+            <td><%= c.act_secondary %></td>
+            <td><%= c.event_date_local %></td>
+            <td><%= c.minPrice %></td>
+            <td><%= c.totalTickets %></td>
+            <td><%= c.venue_name %></td>
+            <td><%= c.city %></td>
+          </tr>
+          <% @affordable_less_recent.find_all_by_event_type(c.event_type).each do |r| %>
+          <tr class="less_recent hidden" id="<%= c.event_type %>">
+            <td><%= r.created_at.strftime("%D") %></td>
+            <td><%= r.act_primary %></td>
+            <td><%= r.act_secondary %></td>
+            <td><%= r.event_date_local %></td>
+            <td><%= r.minPrice %></td>
+            <td><%= r.totalTickets %></td>
+            <td><%= r.venue_name %></td>
+            <td><%= r.city %></td>
+          </tr>
+          <% end %>
+      </tbody>
+    <% end %>
+    </table>
+</body>
+</html>

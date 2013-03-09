@@ -1,0 +1,7 @@
+<h1>What Do You Want To See?</h1>
+<%= form_tag concerts_index_festivals_path, :method => 'get' do %>
+  <p id="search_bar">
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>

@@ -1,2 +1,18 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+# TO-DO LIST #
+
+- Complete migration to new version of app
+- Add views and partials
+- Add AJAX-powered search and Twitter feed about events
+- Map out heirarchy and user flow
+  - /search
+  - /sports
+  - /concerts
+  - /users
+- Map out relationship between tickets and events
+  - use attr writers "def attribute=(str)" and table foreign key methodology to create instances of a ticket that relates to an event. Also can be used for the user form to track events and tickets. Users should be able to choose specific events to track, and all associated tickets are automatically tracked as well. 
+  - use join tables to relate users and events, and events and tickets
+
+  

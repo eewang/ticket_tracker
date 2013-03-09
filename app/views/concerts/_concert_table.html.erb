@@ -1,0 +1,22 @@
+<h3>Upcoming Concerts: </h3>
+    <table>
+      <thead>
+        <tr>
+          <td>As Of</td>
+          <td>Description </td>
+          <td>Event Date </td>
+          <td>Min Price ($) </td>
+          <td>Tix Remaining </td>
+          <td>Venue </td>
+          <td>City </td>
+        </tr>
+      </thead>
+    <% @all_most_recent.each do |c| %>
+      <tbody>
+        <%= render :partial => "concert_recent", :locals => {:c => c } %>
+        <% @all_less_recent.find_all_by_genre_parent(c.genre_parent).each do |r| %>
+        <%= render :partial => "concert_older", :locals => {:r => r }%>
+        <% end %>
+    </tbody>
+  <% end %>
+  </table>
