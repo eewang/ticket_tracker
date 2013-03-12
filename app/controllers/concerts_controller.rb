@@ -12,8 +12,13 @@ class ConcertsController < ApplicationController
 
   def index_festivals
     @festivals = Festival.all
-    @all_most_recent = Festival.most_recent.upcoming.alphabetical.cheap
-    @all_less_recent = Festival.most_recent.alphabetical.cheap
+    if params[:search]
+      @all_most_recent = Festival.search(params[:search])
+      @all_less_recent = Festival.search(params[:search])
+    else
+      @all_most_recent = Festival.most_recent.upcoming.alphabetical.cheap
+      @all_less_recent = Festival.most_recent.alphabetical.cheap
+    end
   end
 
   # GET /concerts/1

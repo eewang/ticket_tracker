@@ -33,7 +33,7 @@ module EventHelper
 
     def search(search)
       if search
-        where(["act_primary LIKE :tag", {:tag => search}])
+        self.where(["description LIKE :tag", {:tag => "%#{search}%" }])
       else
         find(:all)
       end

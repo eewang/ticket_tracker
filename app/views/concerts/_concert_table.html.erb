@@ -13,9 +13,9 @@
       </thead>
     <% @all_most_recent.each do |c| %>
       <tbody>
-        <%= render :partial => "concert_recent", :locals => {:c => c } %>
+        <%= render :partial => "concerts/concert_recent", :locals => {:c => c } %>
         <% @all_less_recent.find_all_by_genre_parent(c.genre_parent).each do |r| %>
-        <%= render :partial => "concert_older", :locals => {:r => r }%>
+        <%= render :partial => "concerts/concert_older", :locals => {:r => r }%>
         <% end %>
     </tbody>
   <% end %>
